@@ -1,12 +1,23 @@
-const { Router } = require('express');
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
+const router = require("express").Router()
+const { videogamesRouter }=require('./videogamesRouter')
+const { genreRouter }=require('./genreRouter')
 
+router.use("/videogames", videogamesRouter);
 
-const router = Router();
-
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
-
+router.use("/genres", genreRouter);
 
 module.exports = router;
+
+
+
+// require('dotenv').config()
+
+// const { APIKEY } = process.env;
+
+// const apiKeyMiddleware = (req, res, next) => {
+//     const apiKey = req.query.key;
+//     if (apiKey !== APIKEY) {
+//       return res.status(403).json({ message: 'API key is missing or invalid' });
+//     }
+//     next();
+//   };
