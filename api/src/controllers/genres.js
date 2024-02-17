@@ -9,13 +9,13 @@ const getGenres=async(req, res)=>{
     
     const genresApi = response.data.results.map((genre, index)=>{
       return {
-        id:index,
+        id:index+1,
         name:genre.name,
       }
     })
     
     //?Solo lo voy a necesitar una vez para cargar los datos de los genres
-    //! await Genre.bulkCreate(genresApi) ******
+    await Genre.bulkCreate(genresApi) 
     
     const genres=await Genre.findAll()
 

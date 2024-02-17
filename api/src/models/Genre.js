@@ -4,9 +4,9 @@ module.exports = (sequelize) => {
   sequelize.define('Genre', {
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true,
-      allowNull: false,
       autoincrement: true,
+      allowNull: false,
+      primaryKey: true,
     },
     name: {
       type: DataTypes.STRING,
