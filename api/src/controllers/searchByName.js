@@ -12,7 +12,10 @@ const searchVideogameByName=async(req, res)=>{
       where:{
         name: { [Op.iLike]: `%${name}%` },
       },
-      include: Genre,
+      include: [{
+        model:Genre,
+        through: { attributes: [] }//* Esto excluye los atributos de la tabla intermedi
+      }],
       limit:15,
     })
   
@@ -22,7 +25,7 @@ const searchVideogameByName=async(req, res)=>{
     }
 
     //*Si no encuentra nada en la DB buscara en la api
-    
+
     const response = await axios.get(`https://api.rawg.io/api/games?search=${name}&key=${API_KEY}`)
     const videogamesFromAPI = response.data.results
     if (videogamesFromAPI.length > 0) {
@@ -40,34 +43,3 @@ const searchVideogameByName=async(req, res)=>{
 module.exports={
   searchVideogameByName
 }
-
-
-
-// const searchVideogameByName = async (req, res) => {
-//   const { name } = req.query;
-//   try {
-//     const videogamesFromDB = await Videogame.findAll({
-//       where: {
-//         name: { [Op.iLike]: `%${name}%` },
-//       },
-//       include: Genre,
-//       limit: 15,
-//     });
-
-//     const response = await axios.get(`https://api.rawg.io/api/games?search=${name}`, {
-//       params: { key: APIKEY },
-//     });
-//     const videogamesFromAPI = response.data.results;
-
-//     // Unificar los resultados de la base de datos y la API
-//     const mergedResults = [...videogamesFromDB, ...videogamesFromAPI];
-
-//     if (mergedResults.length > 0) {
-//       return res.json(mergedResults);
-//     }
-
-//     return res.status(404).json({ message: 'No videogames found' });
-//   } catch (error) {
-//     res.status(500).json({ message: error.message });
-//   }
-// }

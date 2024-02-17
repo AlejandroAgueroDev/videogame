@@ -1,6 +1,5 @@
 const { Videogame, Genre } = require('../db_conection')
 const axios=require('axios')
-// const {APIKEY} = process.env;
 const {API_KEY} = process.env;
 
 const getVideogameById=async(req, res)=>{
