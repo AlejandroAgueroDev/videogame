@@ -6,7 +6,7 @@ const { searchVideogameByName }=require('../controllers/searchByName')
 const { createVideogame}=require('../controllers/createGame')
 
 videogamesRouter.get('/',getVideogames)
-videogamesRouter.get("/:idVideogame", getVideogameById);
+videogamesRouter.get("/id/:idVideogame", getVideogameById);
 videogamesRouter.get("/name/", searchVideogameByName);
 videogamesRouter.post("/", createVideogame);
 
