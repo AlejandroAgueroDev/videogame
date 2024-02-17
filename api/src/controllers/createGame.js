@@ -2,7 +2,6 @@ const { Videogame } = require('../db_conection')
 
 const createVideogame=async(req, res)=>{
     const {name, description, platforms, image, releaseDate, rating, genres}=req.body
-    console.log(req.body)
     
     try{
     const [videogame,created]=await Videogame.findOrCreate({

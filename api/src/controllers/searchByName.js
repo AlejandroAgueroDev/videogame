@@ -22,7 +22,7 @@ const searchVideogameByName=async(req, res)=>{
     }
 
     //*Si no encuentra nada en la DB buscara en la api
-    // console.log(`https://api.rawg.io/api/games?search=${name}&key=${APIKEY}`)
+    
     const response = await axios.get(`https://api.rawg.io/api/games?search=${name}&key=${API_KEY}`)
     const videogamesFromAPI = response.data.results
     if (videogamesFromAPI.length > 0) {
