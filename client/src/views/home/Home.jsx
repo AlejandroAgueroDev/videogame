@@ -8,6 +8,8 @@ const Home = () => {
   const videoGames=useSelector((state)=>state.videoGames)
   const dispatch=useDispatch()
 
+  const filteredGames=useSelector((state)=>state.filteredGames)
+
   useEffect(()=>{
     dispatch(allGame())
   })
@@ -16,9 +18,9 @@ const Home = () => {
     <div>
       <h1>Este es el home</h1>
       <div>
-      {videoGames.map((game) => (
-          <GameCard key={game.id} game={game} />
-        ))}
+        {filteredGames.length > 0 // Si hay juegos filtrados, los mostramos
+          ? filteredGames.map((game) => <GameCard key={game.id} game={game} />)
+          : videoGames.map((game) => <GameCard key={game.id} game={game} />)} 
       </div>
     </div>
   );
