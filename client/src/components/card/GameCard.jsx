@@ -1,26 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import GameDetail from '../gameDetail/GameDetail';
 
 function GameCard({ game }) {
   return (
     <div className="game-card">
-      <Link to={`/game/${game.id}`}>
-        <img src={game.background_image} alt={game.name} />
         <h3>{game.name}</h3>
+      <Link to={`/detail/${game.id}`}>
+        <img src={game.background_image} alt={game.name} />
       </Link>
+        <h4>Géneros: {game.genres.map(genre => genre.name).join(', ')}</h4>
+        <h4>Puntuación: {game.rating} / {game.rating_top}</h4>
     </div>
   );
 }
 
 export default GameCard;
 
-
-
- // return (
-    //   <div>
-    //     <h2>{game.name}</h2>
-    //     <img src={game.image} alt="Imagen del juego" />
-    //     <p>Rating: {game.rating}</p>
-    //     <p>Genres: {game.genres.map((genre) => genre.name).join(", ")}</p>
-    //   </div>
-    // );

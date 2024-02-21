@@ -20,7 +20,11 @@ function App() {
             <Home />            
           </div>
           } />
-          <Route path="/game/:id" component={GameDetail} />
+          <Route path="/detail/:id" element={
+            <div>
+              <GameDetail/>
+            </div>
+          } />
         </Routes>
       </div>
     
