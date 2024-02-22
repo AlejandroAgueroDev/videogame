@@ -4,6 +4,7 @@ const API_KEY='3ef5d6b08fed4e12a529f69e400935ad'
 
 export const ALLGAME='ALLGAME'
 export const SEARCH_GAME='SEARCH_GAME'
+export const SORT_GAME='SORT_GAME'
 
 
 export const allGame = ()=>{
@@ -21,11 +22,18 @@ export const allGame = ()=>{
     }
 }
 
-
 export const searchGames=(input)=>{
+    
    return {
     type: SEARCH_GAME,
     payload:input,
    } 
 }
 
+
+export const sortGame=()=>{
+    return {
+     type:SORT_GAME,
+     payload:order,
+    }
+}

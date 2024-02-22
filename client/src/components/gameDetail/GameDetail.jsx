@@ -5,45 +5,23 @@ const API_KEY='3ef5d6b08fed4e12a529f69e400935ad'
 
 function GameDetail() {
   const { id } = useParams();
-  const [game, setGame] = useState(null);
-
-  // useEffect(() => {
-  //   const fetchGame = async () => {
-  //     const response = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`);
-  //     setGame(response.data);
-  //   };
-  //   fetchGame();
-  // }, [id]);
+  const [game, setGame] = useState();
 
   useEffect(() => {
     const fetchGame = async () => {
-      try{
-
-        const response = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`);
-        const data=response.data;
-  
-        if(data.name){
-          setGame(data)
-        }else{
-          window.alert('No hay personajes con ese id')
-        }
-
-      }catch(error){
-        console.error("Error fetching character details:", error)
-      }
-        
-      
+      const response = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`);
+      setGame(response.data);
     };
     fetchGame();
-
-    return()=>setGame({})
   }, [id]);
 
+  
   return (
     <div className="game-detail">
       {game ? (
         <>
           <h1>{game.name}</h1>
+          <h2>{game.id}</h2>
           <img src={game.background_image} alt={game.name} />
           <p>{game.description_raw}</p>
           // Aquí agregamos la prop key a cada elemento de la lista de géneros
@@ -62,3 +40,31 @@ function GameDetail() {
 }
 
 export default GameDetail;
+
+
+
+
+
+// useEffect(() => {
+  //   const fetchGame = async () => {
+  //     try{
+
+  //       const response = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`);
+  //       const data=response.data;
+  
+  //       if(data.name){
+  //         setGame(data)
+  //       }else{
+  //         window.alert('No hay personajes con ese id')
+  //       }
+
+  //     }catch(error){
+  //       console.error("Error fetching character details:", error)
+  //     }
+        
+      
+  //   };
+  //   fetchGame();
+
+  //   return()=>setGame({})
+  // }, [id]);

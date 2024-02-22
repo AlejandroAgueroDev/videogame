@@ -1,7 +1,15 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { sortGame } from "../../redux/action";
 import Bar from "../searchBar/Bar";
 
-const Nav = ({ setGenresFilter, setOriginFilter, setOrderBy }) => {
+const Nav = ({ setGenresFilter, setOriginFilter}) => {
+
+  const [order, setOrder] = useState("")
+  const dispatch = useDispatch()
+  const sortedGames = useSelector((state) => state.sortedGames)
+  
   const handleGenreChange = (event) => {
     setGenresFilter(event.target.value);
   };
@@ -11,22 +19,25 @@ const Nav = ({ setGenresFilter, setOriginFilter, setOrderBy }) => {
   };
 
   const handleOrderChange = (event) => {
-    setOrderBy(event.target.value);
+    setOrder(event.target.value);
   };
+
+  useEffect(() => {
+    dispatch(sortGame(order))
+  }, [order])
 
   return (
     <div>
       <Bar />
-      {/* Lista desplegable para filtrar por género */}
+      
       <label htmlFor="genre">Género:</label>
       <select id="genre" onChange={handleGenreChange}>
         <option value="">Todos</option>
         <option value="Accion">Acción</option>
         <option value="Aventura">Aventura</option>
-        {/* Aquí podrías agregar más opciones si los géneros vienen de la base de datos */}
       </select>
 
-      {/* Lista desplegable para filtrar por origen */}
+      
       <label htmlFor="origin">Origen:</label>
       <select id="origin" onChange={handleOriginChange}>
         <option value="">Todos</option>
@@ -34,7 +45,7 @@ const Nav = ({ setGenresFilter, setOriginFilter, setOrderBy }) => {
         <option value="base_datos">Base de Datos</option>
       </select>
 
-      {/* Lista desplegable para ordenar */}
+      
       <label htmlFor="order">Ordenar por:</label>
       <select id="order" onChange={handleOrderChange}>
         <option value="">Por defecto</option>

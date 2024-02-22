@@ -1,16 +1,16 @@
 import React from "react";
-import { useSelector } from "react-redux"; // Importamos el selector
-import GameCard from "../card/GameCard"; // Importamos el componente GameCard
+import { useSelector } from "react-redux"
+import GameCard from "../card/GameCard"
 
 function GameList() {
-  // Usamos el selector para obtener el estado de los juegos filtrados
-  const filteredGames = useSelector((state) => state.filteredGames);
+  // Selector para obtener el estado de los juegos filtrados
+  const searchredGames = useSelector((state) => state.searchredGames);
 
-  // Renderizamos los juegos filtrados usando el componente GameCard
+  // Renderizo los juegos filtrados usando el componente GameCard
   return (
     <div className="game-list">
-      {filteredGames.map((game) => (
-        <GameCard game={game} key={game.id} /> // Le pasamos el juego y la prop key a cada GameCard
+      {searchredGames.map((game) => (
+        <GameCard game={game} key={game.id} /> // Le paso el juego y la prop key a cada GameCard
       ))}
     </div>
   );
