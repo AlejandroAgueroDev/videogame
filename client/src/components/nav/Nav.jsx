@@ -1,30 +1,25 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { sortGame } from "../../redux/action";
-import Bar from "../searchBar/Bar";
+import { useDispatch } from "react-redux";
+import Bar from "../searchBar/Bar"
+import { orderByName } from "../../redux/action";
 
-const Nav = ({ setGenresFilter, setOriginFilter}) => {
 
-  const [order, setOrder] = useState("")
-  const dispatch = useDispatch()
-  const sortedGames = useSelector((state) => state.sortedGames)
+const Nav = () => {
+
+  const dispatch=useDispatch()
   
   const handleGenreChange = (event) => {
-    setGenresFilter(event.target.value);
   };
 
   const handleOriginChange = (event) => {
-    setOriginFilter(event.target.value);
   };
 
   const handleOrderChange = (event) => {
-    setOrder(event.target.value);
+    dispatch(orderByName(event.target.value))
   };
 
-  useEffect(() => {
-    dispatch(sortGame(order))
-  }, [order])
+  
 
   return (
     <div>
@@ -48,7 +43,7 @@ const Nav = ({ setGenresFilter, setOriginFilter}) => {
       
       <label htmlFor="order">Ordenar por:</label>
       <select id="order" onChange={handleOrderChange}>
-        <option value="">Por defecto</option>
+        <option value="Por defecto">Por defecto</option>
         <option value="ascendente">Ascendente</option>
         <option value="descendente">Descendente</option>
       </select>

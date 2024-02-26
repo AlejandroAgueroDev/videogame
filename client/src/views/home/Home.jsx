@@ -5,14 +5,16 @@ import { allGame } from "../../redux/action";
 import GameCard from "../../components/card/GameCard";
 
 const Home = () => {
-  const videoGames=useSelector((state)=>state.videoGames)
-  const dispatch=useDispatch()
+  const videoGames = useSelector((state) => state.videoGames);
+  const dispatch = useDispatch();
 
-  const searchredGames=useSelector((state)=>state.searchredGames)
+  const searchredGames = useSelector((state) => state.searchredGames);
 
-  useEffect(()=>{
-    dispatch(allGame())
-  })
+  useEffect(() => {
+    dispatch(allGame());
+  },[]);
+
+ 
 
   return (
     <div>
@@ -20,10 +22,10 @@ const Home = () => {
       <div>
         {searchredGames.length > 0 //aca me muestra los juegos segun el search
           ? searchredGames.map((game) => <GameCard key={game.id} game={game} />)
-          : videoGames.map((game) => <GameCard key={game.id} game={game} />)} 
+          : videoGames.map((game) => <GameCard key={game.id} game={game} />)}
       </div>
     </div>
   );
-}
+};
 
 export default Home;

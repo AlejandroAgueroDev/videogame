@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-const API_KEY='3ef5d6b08fed4e12a529f69e400935ad'
+const API_KEY='1bf00cc003174451abd0517b04f9090a'
 
 function GameDetail() {
   const { id } = useParams();
   const [game, setGame] = useState();
+  const navigate=useNavigate()
 
   useEffect(() => {
     const fetchGame = async () => {
@@ -15,11 +17,17 @@ function GameDetail() {
     fetchGame();
   }, [id]);
 
+
+  const handleClick=()=>{
+    navigate('/home')
+  }
   
   return (
     <div className="game-detail">
       {game ? (
         <>
+          <button onClick={handleClick}>Home</button>
+          
           <h1>{game.name}</h1>
           <h2>{game.id}</h2>
           <img src={game.background_image} alt={game.name} />

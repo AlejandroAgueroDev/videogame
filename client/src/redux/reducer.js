@@ -1,11 +1,11 @@
 import { ALLGAME } from "./action";
 import { SEARCH_GAME } from "./action";
-import { SORT_GAME } from "./action";
+import { ORDER_BY_NAME } from "./action";
 
 const initialState = {
   videoGames: [],
   searchredGames: [],
-  sortedGames: [],
+  orderGames: [],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -35,22 +35,25 @@ const rootReducer = (state = initialState, { type, payload }) => {
         };
       }
 
-    case SORT_GAME:
-      const gamesCopy = state.videoGames.slice();
-      const sortedGames = gamesCopy.sort((a, b) => {
-        if (isAction.payload === "asc") {
-          return a.id - b.id;
-        } else if (action.payload === "desc") {
-          return b - id - a.id;
-        } else {
+    case ORDER_BY_NAME:
+      const order = payload;
+      const orderGames = [...state.videoGames].sort((a, b) => {
+        if (order === "ascendente") {
+          return a.name.localeCompare(b.name);
+        } else if (order === "descendente") {
+          return b.name.localeCompare(a.name);
+        } else if (order === "Por defecto") {
           return 0;
         }
       });
 
       return {
         ...state,
-        sortedGames,
+        videoGames: orderGames,
       };
+
+    // {...state, orderGames}
+    // state => state.videoGames
 
     default:
       return {

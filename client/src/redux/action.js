@@ -1,39 +1,110 @@
 import axios from "axios";
 
-const API_KEY='3ef5d6b08fed4e12a529f69e400935ad'
+export const ALLGAME = "ALLGAME";
+export const SEARCH_GAME = "SEARCH_GAME";
+export const ORDER_BY_NAME = "ORDER_BY_NAME";
 
-export const ALLGAME='ALLGAME'
-export const SEARCH_GAME='SEARCH_GAME'
-export const SORT_GAME='SORT_GAME'
+export const allGame = () => {
+  return async (dispatch) => {
+    let URL = "http://localhost:3001/videogames/";
 
+    const response = await axios.get(URL);
+    const game = response.data.db_api;
 
-export const allGame = ()=>{
-    
-    return async(dispatch)=>{   
-        let URL=`https://api.rawg.io/api/games?key=${API_KEY}`
+    return dispatch({
+      type: ALLGAME,
+      payload: game,
+    });
+  };
 
-        const response = await axios.get(URL);
-        const game=response.data.results
+  const GAME_API = {
+    id: 123,
+    name: "Resident Evil 4",
+    description: "Descripcion del juego (tiene tags HTML)",
+    description_raw: "Descripcion del juego (texto)",
+    background_image: "http://imageofgames.com/images/re4.jpg",
+    genres: [
+      { id: 1, name: "Action" },
+      { id: 2, name: "Adventure" },
+    ],
+    platforms: [
+      { platform: { id: 1, name: "Windows" } },
+      { platform: { id: 2, name: "macOS" } },
+      { platform: { id: 3, name: "PlayStation 2" } },
+    ],
+    released: "2005-02-11",
+    rating: 10,
+  };
 
-        return dispatch({
-            type: ALLGAME,
-            payload: game,
-        })
-    }
-}
+  const GAME_DB = {
+    id: "2d910-d219dk0-1d920dskad-9d12d",
+    name: "Minecraft",
+    description: "Descripcion del juego (texto)",
+    genres: [
+      { id: 1, name: "Adventure" },
+      { id: 2, name: "Indie" },
+    ],
+    platforms: "Windows, macOS, Consoles",
+    image: "http://imageofgames.com/images/minecraft.jpg",
+    releaseDate: "2011-10-11",
+    rating: 10,
+  };
 
-export const searchGames=(input)=>{
-    
-   return {
-    type: SEARCH_GAME,
-    payload:input,
-   } 
-}
+  const GAMES_DB = [
+    {
+      id: "2d910-d219dk0-1d920dskad-9d12d",
+      name: "Resident Evil 4",
+      description: "Descripcion del juego (texto)",
+      genres: [
+        { id: 3, name: "Action" },
+        { id: 4, name: "Terror" },
+      ],
+      platforms: "Windows, macOS, Consoles",
+      image: "http://imageofgames.com/images/re4.jpg",
+      releaseDate: "2005-10-11",
+      rating: 10,
+    },
+    {
+      id: "2d910-d219dk0-1d920dskad-9d12d",
+      name: "Minecraft",
+      description: "Descripcion del juego (texto)",
+      genres: [
+        { id: 1, name: "Adventure" },
+        { id: 2, name: "Indie" },
+      ],
+      platforms: "Windows, macOS, Consoles",
+      image: "http://imageofgames.com/images/minecraft.jpg",
+      releaseDate: "2011-10-11",
+      rating: 10,
+    },
+  ];
 
-
-export const sortGame=()=>{
+  GAMES_DB.map((game) => {
     return {
-     type:SORT_GAME,
-     payload:order,
-    }
-}
+      id: game.id,
+      name: game.name,
+      description_raw: game.description,
+      genres: game.genres,
+      platforms: game.platforms
+        .split(", ")
+        .map((plat, index) => ({ id: index, platform: plat })),
+      background_image: game.image,
+      released: game.releaseDate,
+      rating: game.rating,
+    };
+  });
+};
+
+export const searchGames = (input) => {
+  return {
+    type: SEARCH_GAME,
+    payload: input,
+  };
+};
+
+export const orderByName = (order) => {
+  return {
+    type: ORDER_BY_NAME,
+    payload: order,
+  };
+};
