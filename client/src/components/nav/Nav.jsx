@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Bar from "../searchBar/Bar"
-import { orderByName } from "../../redux/action";
+import { orderByName, allGame } from "../../redux/action";
 
 
 const Nav = () => {
@@ -13,6 +13,7 @@ const Nav = () => {
   };
 
   const handleOriginChange = (event) => {
+    dispatch(allGame(event.target.value))
   };
 
   const handleOrderChange = (event) => {
@@ -35,9 +36,9 @@ const Nav = () => {
       
       <label htmlFor="origin">Origen:</label>
       <select id="origin" onChange={handleOriginChange}>
-        <option value="">Todos</option>
-        <option value="api">API</option>
-        <option value="base_datos">Base de Datos</option>
+        <option value="TODOS">Seleccione Origen</option>
+        <option value="API">API</option>
+        <option value="BD">Base de Datos</option>
       </select>
 
       

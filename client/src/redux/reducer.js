@@ -1,4 +1,4 @@
-import { ALLGAME } from "./action";
+import { ALLGAME, COMPLETE_GAMES } from "./action";
 import { SEARCH_GAME } from "./action";
 import { ORDER_BY_NAME } from "./action";
 
@@ -6,6 +6,7 @@ const initialState = {
   videoGames: [],
   searchredGames: [],
   orderGames: [],
+  complete_games: [],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -15,6 +16,12 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         videoGames: payload,
       };
+    
+    case COMPLETE_GAMES:
+      return{
+        ...state,
+        complete_games: payload,
+      }
 
     case SEARCH_GAME:
       const input = payload.toLowerCase().trim();
@@ -47,13 +54,13 @@ const rootReducer = (state = initialState, { type, payload }) => {
         }
       });
 
+    
+
       return {
         ...state,
         videoGames: orderGames,
       };
 
-    // {...state, orderGames}
-    // state => state.videoGames
 
     default:
       return {

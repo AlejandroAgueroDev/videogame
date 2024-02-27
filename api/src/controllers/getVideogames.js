@@ -4,15 +4,13 @@ const {APIKEY} = process.env;
 
 const getVideogames=async(req, res)=>{
   try{
-    const videogames=await Videogame.findAll()
-    //toDo inlcuir la tabla intermedia a videoGames en su busqueda
-    //toDo findAll({
-      //   include: [{
-      //     model: Genre,
-      //     through: { attributes: [] }, //* Esto excluye los atributos de la tabla intermedia
-      //   }],
-      // })
-
+    const videogames=await Videogame.findAll({
+      include:[{
+        model: Genre,
+        through: { attributes: [] }, 
+      }]
+    })
+   
     const response = await axios.get(`https://api.rawg.io/api/games${APIKEY}`)
     const videogamesFromAPI = response.data.results
 
@@ -21,7 +19,6 @@ const getVideogames=async(req, res)=>{
       db_api:videogamesFromAPI,
     }
    
-    
     res.json(datos)
 
   }catch(error){
