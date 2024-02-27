@@ -1,4 +1,4 @@
-import { ALLGAME, COMPLETE_GAMES } from "./action";
+import { ALLGAME} from "./action";
 import { SEARCH_GAME } from "./action";
 import { ORDER_BY_NAME } from "./action";
 
@@ -17,11 +17,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
         videoGames: payload,
       };
     
-    case COMPLETE_GAMES:
-      return{
-        ...state,
-        complete_games: payload,
-      }
+    // case COMPLETE_GAMES:
+    //   return{
+    //     ...state,
+    //     complete_games: payload,
+    //   }
 
     case SEARCH_GAME:
       const input = payload.toLowerCase().trim();
@@ -52,10 +52,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
         } else if (order === "Por defecto") {
           return 0;
         }
-      });
-
-    
-
+      });    
       return {
         ...state,
         videoGames: orderGames,

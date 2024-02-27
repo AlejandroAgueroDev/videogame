@@ -3,40 +3,26 @@ import axios from "axios";
 export const ALLGAME = "ALLGAME";
 export const SEARCH_GAME = "SEARCH_GAME";
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
-export const COMPLETE_GAMES='COMPLETE_GAMES'
-
+// export const COMPLETE_GAMES = "COMPLETE_GAMES";
 
 export const allGame = (valorInput) => {
   return async (dispatch) => {
     let URL = "http://localhost:3001/videogames/";
 
     const response = await axios.get(URL);
-    const gameBD = response.data.db
-    const gameAPI = response.data.db_api
+    const gameBD = response.data.db;
+    const gameAPI = response.data.db_api;
     // console.log(game)
 
-    if(valorInput==='API'){
-
+    if (valorInput === "API") {
       return dispatch({
         type: ALLGAME,
         payload: gameAPI,
       });
-
-    // }else if(valorInput==='BD'){
-    //   return dispatch({
-    //     type: ALLGAME,
-    //     payload: gameBD,
-    //   });
-
-    }else if(valorInput==='BD'){
+    } else if (valorInput === "BD") {
       return dispatch({
         type: ALLGAME,
-        // payload: [
-        //   gameAPI,
-        //   gameBD
-        // ]
-        payload: response.data
-        .db.map((game) => {
+        payload: gameBD.map((game) => {
           return {
             id: game.id,
             name: game.name,
@@ -51,9 +37,13 @@ export const allGame = (valorInput) => {
           };
         }),
       });
+    } else {
+      return dispatch({
+        type: ALLGAME,
+        payload: gameAPI,
+      });
     }
   };
-
 };
 
 export const searchGames = (input) => {
@@ -69,29 +59,6 @@ export const orderByName = (order) => {
     payload: order,
   };
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // const GAME_API = {
 //     id: 123,
@@ -155,17 +122,17 @@ export const orderByName = (order) => {
 //     },
 //   ];
 
-  // GAMES_DB.map((game) => {
-  //   return {
-  //     id: game.id,
-  //     name: game.name,
-  //     description_raw: game.description,
-  //     genres: game.genres,
-  //     platforms: game.platforms
-  //       .split(", ")
-  //       .map((plat, index) => ({ id: index, platform: plat })),
-  //     background_image: game.image,
-  //     released: game.releaseDate,
-  //     rating: game.rating,
-  //   };
-  // });
+// GAMES_DB.map((game) => {
+//   return {
+//     id: game.id,
+//     name: game.name,
+//     description_raw: game.description,
+//     genres: game.genres,
+//     platforms: game.platforms
+//       .split(", ")
+//       .map((plat, index) => ({ id: index, platform: plat })),
+//     background_image: game.image,
+//     released: game.releaseDate,
+//     rating: game.rating,
+//   };
+// });

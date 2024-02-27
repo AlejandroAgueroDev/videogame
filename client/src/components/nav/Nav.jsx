@@ -36,7 +36,7 @@ const Nav = () => {
       
       <label htmlFor="origin">Origen:</label>
       <select id="origin" onChange={handleOriginChange}>
-        <option value="TODOS">Seleccione Origen</option>
+        {/* <option value="Default">Seleccione Origen</option> */}
         <option value="API">API</option>
         <option value="BD">Base de Datos</option>
       </select>
