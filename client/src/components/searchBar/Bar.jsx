@@ -1,6 +1,6 @@
 import React from "react";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState,useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { searchGames } from "../../redux/action";
 
 const Bar=()=>{
@@ -8,6 +8,7 @@ const Bar=()=>{
  const [input, setInput]=useState('')
  const dispatch=useDispatch()
 
+ const notFound = useSelector(state => state.notFound);
 
  const handleChange=(event)=>{
   setInput(event.target.value)
@@ -17,6 +18,12 @@ const Bar=()=>{
   dispatch(searchGames(input))
   setInput('')  
  }
+
+ useEffect(() => {
+  if (notFound) {
+    alert("No se han encontrado videojuegos");
+  }
+}, [notFound]);
 
 
   return (

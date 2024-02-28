@@ -10,6 +10,7 @@ const initialState = {
   orderGames: [],
   complete_games: [],
   get_genres:[],
+  notFound: false,
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -27,15 +28,17 @@ const rootReducer = (state = initialState, { type, payload }) => {
       );
 
       if (searchredGames.length === 0) {
-        alert("No se han encontrado videojuegos");
+        // alert("No se han encontrado videojuegos");
         return {
           ...state,
           searchredGames: state.videoGames,
+          notFound: true,
         };
       } else {
         return {
           ...state,
           searchredGames,
+          notFound: false,
         };
       }
 
