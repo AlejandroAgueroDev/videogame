@@ -1,16 +1,15 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import Bar from "../searchBar/Bar"
-import { orderByName, allGame } from "../../redux/action";
+import { useDispatch, useSelector } from "react-redux";
+import Bar from "../SearchBar/Bar"
+import { orderByName, allGame, get_genres } from "../../redux/action";
 
 
 const Nav = () => {
 
   const dispatch=useDispatch()
+  const genres = useSelector(state => state.get_genres);
   
-  const handleGenreChange = (event) => {
-  };
 
   const handleOriginChange = (event) => {
     dispatch(allGame(event.target.value))
@@ -20,17 +19,23 @@ const Nav = () => {
     dispatch(orderByName(event.target.value))
   };
 
-  
+  useEffect(() => {
+    dispatch(get_genres());
+  }, [dispatch]);
 
   return (
     <div>
       <Bar />
       
       <label htmlFor="genre">Género:</label>
-      <select id="genre" onChange={handleGenreChange}>
-        <option value="">Todos</option>
-        <option value="Accion">Acción</option>
-        <option value="Aventura">Aventura</option>
+      <select id="genre">
+        <option value="">--Seleccione genero--</option>
+        {genres.map(genre => (
+          <option key={genre.id} value={genre.name}>
+            {genre.name}
+          </option>
+        ))}
+        
       </select>
 
       

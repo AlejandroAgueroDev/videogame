@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
+    description_raw: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    image: {
+    background_image: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -33,33 +33,3 @@ module.exports = (sequelize) => {
     },
   });
 };
-
-// id: {
-//   type: DataTypes.UUID,
-//   primaryKey: true,
-//   defaultValue: DataTypes.UUIDV4,
-// },
-// name: {
-//   type: DataTypes.STRING,
-//   allowNull: false,
-// },
-// description: {
-//   type: DataTypes.TEXT,
-//   allowNull: false,
-// },
-// platforms: {
-//   type: DataTypes.STRING,
-//   allowNull: false,
-// },
-// image: {
-//   type: DataTypes.STRING,
-//   allowNull: false,
-// },
-// releaseDate: {
-//   type: DataTypes.DATE,
-//   allowNull: false,
-// },
-// rating: {
-//   type: DataTypes.FLOAT,
-//   allowNull: false,
-// },

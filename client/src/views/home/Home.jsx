@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { allGame } from "../../redux/action";
-import GameCard from "../../components/card/GameCard";
+import GameCard from "../../components/Card/GameCard";
 
 
 

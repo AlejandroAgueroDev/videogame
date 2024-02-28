@@ -3,10 +3,10 @@ import "./App.css";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Page from './views/landing/Page'
-import Home from './views/home/Home'
-import Nav from "./components/nav/Nav";
-import GameDetail from './components/gameDetail/GameDetail'
+import Page from './views/Landing/Page'
+import Home from './views/Home/Home'
+import Nav from "./components/Nav/Nav";
+import GameDetail from './components/GameDetail/GameDetail'
 
 function App() {
   return (

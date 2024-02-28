@@ -1,15 +1,15 @@
 const { Videogame } = require('../db_conection')
 
 const createVideogame=async(req, res)=>{
-    const {name, description, platforms, image, releaseDate, rating, genres}=req.body
+    const {name, description_raw, platforms, background_image, releaseDate, rating, genres}=req.body
     
     try{
     const [videogame,created]=await Videogame.findOrCreate({
       where:{name},
       defaults:{
-        description,
+        description_raw,
         platforms,
-        image,
+        background_image,
         releaseDate,
         rating,
       }         

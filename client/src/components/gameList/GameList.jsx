@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux"
-import GameCard from "../card/GameCard"
+import GameCard from "../Card/GameCard"
 
 function GameList() {
   // Selector para obtener el estado de los juegos filtrados

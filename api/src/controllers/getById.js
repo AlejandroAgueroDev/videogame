@@ -14,8 +14,18 @@ const getVideogameById=async(req, res)=>{
           through: { attributes: [] }, //* Esto excluye los atributos de la tabla intermedia
         }],
       })
-
-      res.json(videogame)
+      
+      const juegosFormat={
+        id: videogame.id,
+        name: videogame.name,
+        background_image: videogame.background_image,
+        platforms: videogame.platforms,
+        description_raw: videogame.description_raw,
+        genres: videogame.Genres.map(genre=>genre.name).join(', '),
+        rating: videogame.rating,
+      }
+      
+      res.json(juegosFormat)
   
     } catch (error) {
       res.status(500).json({ message: error.message })
@@ -24,9 +34,18 @@ const getVideogameById=async(req, res)=>{
 
   } else if (Number(idVideogame)) {
     try {
-      const response=await axios.get(`https://api.rawg.io/api/games/${idVideogame}?key=${API_KEY}`)
-        
-      res.json(response.data)
+      const {data}=await axios.get(`https://api.rawg.io/api/games/${idVideogame}?key=${API_KEY}`)
+
+      const API={
+        id: data.id,
+        name: data.name,
+        background_image: data.background_image,
+        platforms: data.platforms.map((platform)=>platform.platform.name).join(', '),
+        description_raw: data.description_raw,
+        genres: data.genres.map(genre=>genre.name).join(', '),
+        rating: data.rating,
+      }
+      res.json(API)
 
     } catch (error) {
       res.status(500).json({ message: error.message })

@@ -1,12 +1,15 @@
 import { ALLGAME} from "./action";
 import { SEARCH_GAME } from "./action";
 import { ORDER_BY_NAME } from "./action";
+import { GET_GENRES } from "./action";
+import { SELECT_GENRES } from "./action";
 
 const initialState = {
   videoGames: [],
   searchredGames: [],
   orderGames: [],
   complete_games: [],
+  get_genres:[],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -16,12 +19,6 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         videoGames: payload,
       };
-    
-    // case COMPLETE_GAMES:
-    //   return{
-    //     ...state,
-    //     complete_games: payload,
-    //   }
 
     case SEARCH_GAME:
       const input = payload.toLowerCase().trim();
@@ -58,7 +55,14 @@ const rootReducer = (state = initialState, { type, payload }) => {
         videoGames: orderGames,
       };
 
+    case GET_GENRES:
+      return{
+        ...state,
+        get_genres:payload,
+      }
 
+    
+     
     default:
       return {
         ...state,
