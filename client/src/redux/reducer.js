@@ -33,11 +33,9 @@ const rootReducer = (state = initialState, { type, payload }) => {
       );
 
       if (searchredGames.length === 0) {
-        // alert("No se han encontrado videojuegos");
         return {
           ...state,
           videoGames: state.videoGames,
-          //  searchredGames: state.videoGames,
           notFound: true,
         };
       } else {
@@ -71,7 +69,6 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case SELECT_GENRES:
-      //  const genre = payload;
       const generos = payload.split(",").map((genre) => genre.trim());
       const filteredGames = [...state.copyVideoGames].filter((game) => {
         const gameGenres = game.genres.map((genre) => genre.name);
@@ -87,16 +84,14 @@ const rootReducer = (state = initialState, { type, payload }) => {
       } else {
         return {
           ...state,
-          //  generos: filteredGames,
           videoGames: filteredGames,
-          // notFound: filteredGames.length === 0,
         };
       }
 
       case CREATE_GAME:
         return {
           ...state,
-          games: [...state.games, action.payload],
+          games: [...state.games, payload],
         };
 
     default:
