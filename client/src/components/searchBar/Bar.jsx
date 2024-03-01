@@ -6,17 +6,20 @@ import { searchGames } from "../../redux/action";
 const Bar=()=>{
 
  const [input, setInput]=useState('')
+ const [update, setUpdate]=useState(true)
  const dispatch=useDispatch()
 
  const notFound = useSelector(state => state.notFound);
 
  const handleChange=(event)=>{
   setInput(event.target.value)
+  setUpdate(!update)
  }
 
  const handleSearch=()=>{
   dispatch(searchGames(input))
   setInput('')  
+  setUpdate(!update)
  }
 
  useEffect(() => {

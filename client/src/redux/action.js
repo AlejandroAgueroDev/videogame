@@ -5,6 +5,7 @@ export const SEARCH_GAME = "SEARCH_GAME";
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const GET_GENRES='GET_GENRES'
 export const SELECT_GENRES = 'SELECT_GENRES'
+export const CREATE_GAME='CREATE_GAME'
 // export const COMPLETE_GAMES = "COMPLETE_GAMES";
 
 export const allGame = (valorInput) => {
@@ -29,9 +30,9 @@ export const allGame = (valorInput) => {
             name: game.name,
             description_raw: game.description_raw,
             genres: game.genres,
-            platforms: game.platforms
-              .split(", ")
-              .map((plat, index) => ({ id: index, platform: plat })),
+            platforms: game.platforms,
+              // .split(", ")
+              // .map((plat, index) => ({ id: index, platform: plat })),
             background_image: game.background_image,
             released: game.releaseDate,
             rating: game.rating,
@@ -74,4 +75,18 @@ export const get_genres=()=>{
     })
 
   }
+}
+
+export const select_genres=(generos)=>{
+  return {
+    type: SELECT_GENRES,
+    payload: generos,
+  };
+}
+
+export const create_game=(gameData)=>{
+  return {
+    type: CREATE_GAME,
+    payload: gameData,
+  };
 }

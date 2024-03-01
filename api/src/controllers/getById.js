@@ -15,7 +15,7 @@ const getVideogameById=async(req, res)=>{
         }],
       })
       
-      const juegosFormat={
+      const BD_Format={
         id: videogame.id,
         name: videogame.name,
         background_image: videogame.background_image,
@@ -25,7 +25,7 @@ const getVideogameById=async(req, res)=>{
         rating: videogame.rating,
       }
       
-      res.json(juegosFormat)
+      res.json(BD_Format)
   
     } catch (error) {
       res.status(500).json({ message: error.message })
@@ -36,7 +36,7 @@ const getVideogameById=async(req, res)=>{
     try {
       const {data}=await axios.get(`https://api.rawg.io/api/games/${idVideogame}?key=${API_KEY}`)
 
-      const API={
+      const API_Format={
         id: data.id,
         name: data.name,
         background_image: data.background_image,
@@ -45,7 +45,7 @@ const getVideogameById=async(req, res)=>{
         genres: data.genres.map(genre=>genre.name).join(', '),
         rating: data.rating,
       }
-      res.json(API)
+      res.json(API_Format)
 
     } catch (error) {
       res.status(500).json({ message: error.message })

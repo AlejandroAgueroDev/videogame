@@ -1,16 +1,20 @@
-import { ALLGAME} from "./action";
+import { ALLGAME } from "./action";
 import { SEARCH_GAME } from "./action";
 import { ORDER_BY_NAME } from "./action";
 import { GET_GENRES } from "./action";
 import { SELECT_GENRES } from "./action";
+import { CREATE_GAME } from "./action";
 
 const initialState = {
   videoGames: [],
   searchredGames: [],
   orderGames: [],
   complete_games: [],
-  get_genres:[],
+  get_genres: [],
   notFound: false,
+  copyVideoGames: [],
+  generos: [],
+  games: [],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -19,6 +23,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         videoGames: payload,
+        copyVideoGames: payload,
       };
 
     case SEARCH_GAME:
@@ -31,7 +36,8 @@ const rootReducer = (state = initialState, { type, payload }) => {
         // alert("No se han encontrado videojuegos");
         return {
           ...state,
-          searchredGames: state.videoGames,
+          videoGames: state.videoGames,
+          //  searchredGames: state.videoGames,
           notFound: true,
         };
       } else {
@@ -50,22 +56,49 @@ const rootReducer = (state = initialState, { type, payload }) => {
         } else if (order === "descendente") {
           return b.name.localeCompare(a.name);
         } else if (order === "Por defecto") {
-          return 0;
+          return state.videoGames;
         }
-      });    
+      });
       return {
         ...state,
-        videoGames: orderGames,
+        videoGames: [...orderGames],
       };
 
     case GET_GENRES:
-      return{
+      return {
         ...state,
-        get_genres:payload,
+        get_genres: payload,
+      };
+
+    case SELECT_GENRES:
+      //  const genre = payload;
+      const generos = payload.split(",").map((genre) => genre.trim());
+      const filteredGames = [...state.copyVideoGames].filter((game) => {
+        const gameGenres = game.genres.map((genre) => genre.name);
+
+        return generos.every((genre) => gameGenres.includes(genre));
+      });
+
+      if (generos[0] === "Todos") {
+        return {
+          ...state,
+          videoGames: state.copyVideoGames,
+        };
+      } else {
+        return {
+          ...state,
+          //  generos: filteredGames,
+          videoGames: filteredGames,
+          // notFound: filteredGames.length === 0,
+        };
       }
 
-    
-     
+      case CREATE_GAME:
+        return {
+          ...state,
+          games: [...state.games, action.payload],
+        };
+
     default:
       return {
         ...state,

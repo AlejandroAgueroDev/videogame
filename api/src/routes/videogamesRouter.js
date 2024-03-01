@@ -8,7 +8,7 @@ const { createVideogame}=require('../controllers/createGame')
 videogamesRouter.get('/',getVideogames)
 videogamesRouter.get("/id/:idVideogame", getVideogameById);
 videogamesRouter.get("/name/", searchVideogameByName);
-videogamesRouter.post("/", createVideogame);
+videogamesRouter.post("/create", createVideogame);
 
 module.exports={
     videogamesRouter,

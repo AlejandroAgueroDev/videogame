@@ -10,7 +10,7 @@ function GameCard({ game }) {
         <img src={game.background_image} alt={game.name} />
       </Link>
         <h4>Géneros: {game.genres && game.genres.map(genre => genre.name).join(', ')}</h4>
-        <h4>Puntuación: {game.rating} / {game.rating_top}</h4>
+        <h4>Puntuación: {game.rating} / 5</h4>
     </div>
   );
 }

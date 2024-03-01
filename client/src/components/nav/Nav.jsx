@@ -1,41 +1,49 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Bar from "../SearchBar/Bar"
-import { orderByName, allGame, get_genres } from "../../redux/action";
+import { orderByName, allGame, get_genres, select_genres } from "../../redux/action";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+
 
 
 const Nav = () => {
 
   const dispatch=useDispatch()
   const genres = useSelector(state => state.get_genres);
-  
+  // const [update, setUpdate]=useState(true)
+
+  const handleGenreChange = (event) => {
+    dispatch(select_genres(event.target.value))
+  };
 
   const handleOriginChange = (event) => {
     dispatch(allGame(event.target.value))
+    // setUpdate(!update)
   };
 
   const handleOrderChange = (event) => {
     dispatch(orderByName(event.target.value))
+    // setUpdate(!update)
   };
 
   useEffect(() => {
     dispatch(get_genres());
-  }, [dispatch]);
+  },[]);
 
   return (
     <div>
       <Bar />
       
       <label htmlFor="genre">Género:</label>
-      <select id="genre">
-        <option value="">--Seleccione genero--</option>
+      <select id="genre" onChange={handleGenreChange}>
+        <option value="Todos" >Todos</option>
         {genres.map(genre => (
           <option key={genre.id} value={genre.name}>
             {genre.name}
           </option>
-        ))}
-        
+        ))}        
       </select>
 
       
@@ -53,6 +61,11 @@ const Nav = () => {
         <option value="ascendente">Ascendente</option>
         <option value="descendente">Descendente</option>
       </select>
+
+      <Link to='/create'>
+        <button>CreateGame</button>
+      </Link>
+
     </div>
   );
 };
