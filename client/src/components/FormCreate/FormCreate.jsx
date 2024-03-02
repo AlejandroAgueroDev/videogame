@@ -28,21 +28,16 @@ const FormCreate = () => {
   });
  };
 
- 
- const handleSubmit = async (event) => {
+
+const handleSubmit = async (event) => {
   event.preventDefault();
-  try {
-    dispatch(createGame(gameData));
-    navigate("/home", { state:  alert('Juego creado correctamente') });
-  } catch (error) {   
-    alert("Error creando juego:", error);
-    
-  }
- };
+  dispatch(createGame(gameData));
+  navigate("/home") 
+};
 
  useEffect(() => {
   dispatch(get_genres());
- }, []);
+ },[]);
 
  return (
   <>
@@ -146,3 +141,17 @@ const FormCreate = () => {
 };
 
 export default FormCreate;
+
+
+
+ 
+//  const handleSubmit = async (event) => {
+//   event.preventDefault();
+//   try {
+//     dispatch(createGame(gameData));
+//     navigate("/home", { state:  alert('Juego creado correctamente') });
+//   } catch (error) {   
+//     alert("Error creando juego:", error);
+    
+//   }
+//  };

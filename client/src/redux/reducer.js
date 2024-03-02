@@ -4,6 +4,8 @@ import { ORDER_BY_NAME } from "./action";
 import { GET_GENRES } from "./action";
 import { SELECT_GENRES } from "./action";
 import { CREATE_GAME } from "./action";
+import { REFRESH_ORDER } from "./action";
+
 
 const initialState = {
   videoGames: [],
@@ -88,11 +90,17 @@ const rootReducer = (state = initialState, { type, payload }) => {
         };
       }
 
-      case CREATE_GAME:
-        return {
-          ...state,
-          games: [...state.games, payload],
-        };
+    case CREATE_GAME:
+      return {
+        ...state,
+        games: [...state.games, payload],
+      };
+
+    case REFRESH_ORDER:
+      return {
+        ...state,
+        videoGames: [...state.copyVideoGames],
+      }
 
     default:
       return {

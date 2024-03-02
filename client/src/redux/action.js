@@ -6,6 +6,7 @@ export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const GET_GENRES = 'GET_GENRES'
 export const SELECT_GENRES = 'SELECT_GENRES'
 export const CREATE_GAME = 'CREATE_GAME'
+export const REFRESH_ORDER='REFRESH_ORDER'
 
 export const allGame = (valorInput) => {
   return async (dispatch) => {
@@ -83,16 +84,43 @@ export const select_genres = (generos) => {
   };
 }
 
+export const refreshOrder = () => {
+  return {
+    type: 'REFRESH_ORDER'
+  };
+};
+
 export const createGame=(gameData)=>{
   return async (dispatch) => {
+    
+    try{
 
-    const response = await axios.post('http://localhost:3001/videogames/create', gameData);
-    const newGame = response.data;
+      const response = await axios.post('http://localhost:3001/videogames/create', gameData);
+      const newGame = response.data;
 
-    return dispatch({
-      type: CREATE_GAME,
-      payload: newGame,
-    });
+      alert("Juego creado correctamente");
+  
+      return dispatch({
+        type: CREATE_GAME,
+        payload: newGame,
+      });
+    }catch(error){
+      alert("Error creando juego: "+error.message );
+    }
 
   };
 }
+
+// export const createGame=(gameData)=>{
+//   return async (dispatch) => {
+
+//     const response = await axios.post('http://localhost:3001/videogames/create', gameData);
+//     const newGame = response.data;
+
+//     return dispatch({
+//       type: CREATE_GAME,
+//       payload: newGame,
+//     });
+
+//   };
+// }
