@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { allGame } from "../../redux/action";
 import GameCard from "../../components/Card/GameCard";
 import Nav from "../../components/Nav/Nav";
+import styles from './Home.module.css'
 
 
 
@@ -18,11 +19,11 @@ const Home = () => {
   },[]);
 
   return (
-    <div>
+    <div className={styles.background}>
         <div>
           <Nav/>
         </div>
-      <h1>Este es el home</h1>
+      {/* <h1>Este es el home</h1> */}
       <div>
         {searchredGames.length > 0 //aca me muestra los juegos segun el search
           ? searchredGames.map((game) => <GameCard key={game.id} game={game} />)

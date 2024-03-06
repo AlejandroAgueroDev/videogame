@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import styles from "./GameDetail.module.css";
 
 function GameDetail() {
  const { id } = useParams();
@@ -23,22 +24,38 @@ function GameDetail() {
  };
 
  return (
-  <div className="game-detail">
+  <div >
    {game ? (
     <>
      <button onClick={handleClick}>Home</button>
+    <div >
 
-     <h1 >{game.id}</h1> 
+     <h1>{game.id}</h1>
      <h2>{game.name}</h2>
-     <img src={game.background_image} alt={game.name} />
-     <p>Platforms: {game.platforms}</p>
-     <p>Description: {game.description_raw}</p>
-     <p>Genres: {game.genres}</p>
-     <p>Rating: {game.rating}</p>    
-     
+     <img className={styles.img} src={game.background_image} alt={game.name} />
+     <p>PLATFORMS: {game.platforms}</p>
+     <p>DESCRIPTION: {game.description_raw}</p>
+     <p>GENRE: {game.genres}</p>
+     <p>RATING: {game.rating}</p>
+    </div>
     </>
    ) : (
-    <p>Cargando...</p>
+    // <p>Cargando...</p>
+    <div className={styles.loaderContainer}>
+     {" "}
+     {/* Use a separate class */}
+     <div className={styles.loader}>
+      {" "}
+      {/* Nested class for styles */}
+      <div className={styles.loaderSquare}></div>
+      <div className={styles.loaderSquare}></div>
+      <div className={styles.loaderSquare}></div>
+      <div className={styles.loaderSquare}></div>
+      <div className={styles.loaderSquare}></div>
+      <div className={styles.loaderSquare}></div>
+      <div className={styles.loaderSquare}></div>
+     </div>
+    </div>
    )}
   </div>
  );

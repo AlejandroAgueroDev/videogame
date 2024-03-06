@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Bar from "../SearchBar/Bar"
 import { orderByName, allGame, get_genres, select_genres, refreshOrder } from "../../redux/action";
 import { Link } from "react-router-dom";
+import styles from './Nav.module.css'
 
 
 const Nav = () => {
@@ -37,8 +38,12 @@ const Nav = () => {
   }, []);
 
   return (
+    <>
+    
     <div>
       <Bar />
+    </div>
+    <div className={styles.navBar}>
 
       <label htmlFor="genre">Género:</label>
       <select id="genre" onChange={handleGenreChange}>
@@ -60,7 +65,7 @@ const Nav = () => {
 
       <label htmlFor="order">Ordenar por:</label>
       <select id="order" value={refresh} onChange={handleOrderChange}>
-        <option value="Por defecto">Por defecto</option>
+        <option value="Por defecto" hidden>ORDENAR</option>
         <option value="ascendente">A-Z</option>
         <option value="descendente">Z-A</option>
       </select>
@@ -72,6 +77,7 @@ const Nav = () => {
       </Link>
 
     </div>
+  </>
   );
 };
 

@@ -1,7 +1,24 @@
-.App {
-  text-align: center;
+* {
+ margin: 0;
+ padding: 0;
 }
 
+.App {
+ text-align: center;
+ font-family: "Varela Round", sans-serif;
+ font-style: normal;
+}
+
+/* .App {
+ background: url("../src/assets/Fondo\ 4.png");
+ background-position: center center;
+ background-size: cover;
+ background-attachment: fixed;
+ height: 100%;
+ width: 100%;
+} */
+
+/* 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +52,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

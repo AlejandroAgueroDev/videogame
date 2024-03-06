@@ -1,0 +1,8 @@
+.background {
+ background: url("../src/assets/Fondo\ 4.png");
+ background-position: center center;
+ background-size: cover;
+ background-attachment: fixed;
+ height: 100%;
+ width: 100%;
+}
