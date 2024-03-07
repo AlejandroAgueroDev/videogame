@@ -9,6 +9,7 @@
  display: inline-block;
  margin-top: 10px;
  padding: 10px;
+ border: 1px solid #000000;
 }
 
 .button {
@@ -39,12 +40,13 @@
 .select {
  border-radius: 30px;
  font-family: "Varela Round", sans-serif;
- padding: 10px 15px; /* Add some padding for better readability */
- border: 1px solid #ccc; /* Add a subtle border */
- background-color: rgb(255, 56, 86); /* Light background color */
- cursor: pointer; /* Indicate clickable nature */
+ padding: 10px 15px;
+ border: 1px solid #ccc;
+ background-color: rgb(255, 56, 86);
+ cursor: pointer;
+ border: 1px solid #000000;
 }
 
 .option {
-    font-family: "Varela Round", sans-serif;
+ font-family: "Varela Round", sans-serif;
 }

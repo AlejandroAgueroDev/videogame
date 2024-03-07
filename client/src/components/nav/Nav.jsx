@@ -11,26 +11,33 @@ const Nav = () => {
 
   const dispatch = useDispatch()
   const genres = useSelector(state => state.get_genres);
-  const [refresh, setRefresh] = useState("");
+  const [refresh, setRefresh] = useState("");  
+  const [forseUpdate, setForseUpdate]=useState(true)
+  
 
   const handleGenreChange = (event) => {
     dispatch(select_genres(event.target.value))
+    setForseUpdate(!forseUpdate)
+    setRefresh(event.target.value);
   };
 
   const handleOriginChange = (event) => {
     setRefresh(event.target.value);
     dispatch(allGame(event.target.value))
+    setForseUpdate(!forseUpdate)
   };
 
   const handleOrderChange = (event) => {
     setRefresh(event.target.value);
     dispatch(orderByName(event.target.value))
+    setForseUpdate(!forseUpdate)
   };
 
   const handleRefresh = (event) => {
     dispatch(allGame(event.target.value))
     dispatch(refreshOrder())
     setRefresh("")
+    setForseUpdate(!forseUpdate)
   };
 
   useEffect(() => {
@@ -46,7 +53,7 @@ const Nav = () => {
       <div className={styles.navBar}>
 
         <label htmlFor="genre">Género:</label>
-        <select className={styles.select} id="genre" onChange={handleGenreChange}>
+        <select className={styles.select} id="genre" value={refresh} onChange={handleGenreChange}>
           <option value="Todos" >Todos</option>
           {genres.map(genre => (
             <option key={genre.id} value={genre.name}>

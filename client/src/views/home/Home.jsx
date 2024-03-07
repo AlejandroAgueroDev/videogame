@@ -5,6 +5,7 @@ import { allGame } from "../../redux/action";
 import GameCard from "../../components/Card/GameCard";
 import Nav from "../../components/Nav/Nav";
 import styles from './Home.module.css'
+import { useState } from "react";
 
 
 
@@ -12,7 +13,7 @@ const Home = () => {
   const videoGames = useSelector((state) => state.videoGames);
   const dispatch = useDispatch();
 
-  const searchredGames = useSelector((state) => state.searchredGames);
+  const searchredGames = useSelector((state) => state.searchredGames);  
 
   useEffect(() => {
     dispatch(allGame());

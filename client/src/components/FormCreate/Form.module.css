@@ -73,8 +73,9 @@
  align-items: start;
  border-radius: 30px;
  text-align: center;
- padding-left: 10px; /* Ajusta según sea necesario */
+ padding-left: 10px;
  padding-right: 10px;
+ border: 1px solid #000000;
 }
 
 .error_message {
@@ -90,6 +91,7 @@
  backdrop-filter: blur(6px);
  display: inline-block;
  border-radius: 30px;
+ border: 1px solid #000000;
 }
 
 .textArea {
@@ -97,25 +99,35 @@
  align-items: start;
  border-radius: 30px;
  text-align: center;
- padding-left: 10px; /* Ajusta según sea necesario */
+ padding-left: 10px;
  padding-right: 10px;
  width: 250px;
  height: 50px;
  resize: none;
+ border: 1px solid #000000;
 }
 
 .releaseDate {
  font-family: "Varela Round", sans-serif;
  border-radius: 30px;
- padding: 10px 15px; /* Add some padding for better readability */
- border: 1px solid #ccc; /* Add a subtle border */
- background-color: #f5f5f5; /* Light background color */
- cursor: pointer; /* Indicate clickable nature */
+ padding: 10px 15px;
+ border: 1px solid #000000;
+ background-color: #f5f5f5;
+ cursor: pointer;
+}
+
+.releaseDateSelect {
+ font-family: "Varela Round", sans-serif;
+ border-radius: 30px;
+ padding: 10px 15px;
+ border: 1px solid #000000;
+ background-color: rgb(255, 56, 86);
+ cursor: pointer;
 }
 
 .releaseDate:focus {
- outline: none; /* Remove default outline on focus */
- border-color: #888; /* Change border color on focus for better feedback */
+ outline: none;
+ border-color: #888;
 }
 
 .background {

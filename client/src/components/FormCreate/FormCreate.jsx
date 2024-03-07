@@ -215,7 +215,7 @@ const FormCreate = () => {
             <label className={styles.label}>Seleccione genero: </label>
           </div>
           <select
-            className={styles.releaseDate}
+            className={styles.releaseDateSelect}
             id="genres"
             name="genres"
             onChange={handleChange}
