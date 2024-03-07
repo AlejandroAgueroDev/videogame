@@ -11,7 +11,7 @@
  padding: 10px;
 }
 
-button {
+.button {
  padding: 6px 10px;
  border-radius: 10px;
  border: 0;
@@ -25,26 +25,26 @@ button {
  margin: 5px;
 }
 
-button:hover {
+.button:hover {
  box-shadow: rgb(201, 46, 70) 0px 7px 0px 0px;
 }
 
-button:active {
+.button:active {
  background-color: rgb(255, 56, 86);
  /*50, 168, 80*/
  box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
  transform: translateY(5px);
  transition: 200ms;
 }
-select{
-    border-radius: 20px;
-    font-family: "Varela Round", sans-serif;
-    font-size: 110%;
- font-style: normal;
- margin: 5px;
- background-color: crimson;
+.select {
+ border-radius: 30px;
+ font-family: "Varela Round", sans-serif;
+ padding: 10px 15px; /* Add some padding for better readability */
+ border: 1px solid #ccc; /* Add a subtle border */
+ background-color: rgb(255, 56, 86); /* Light background color */
+ cursor: pointer; /* Indicate clickable nature */
 }
 
-option{
-    border-radius: 10px;
+.option {
+    font-family: "Varela Round", sans-serif;
 }

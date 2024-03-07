@@ -1,3 +1,5 @@
+/********** LOADER **********/
+
 .loaderContainer {
  display: flex;
  justify-content: center;
@@ -156,32 +158,100 @@
  }
 }
 
-h1{
-    font-family: "Varela Round", sans-serif;
-    margin-top: 10px;
+/********** DETAIL **********/
+.h1 {
+ font-family: "Varela Round", sans-serif;
+ margin-top: 10px;
+ -webkit-backdrop-filter: blur(9px);
+ backdrop-filter: blur(9px);
+ display: inline-block;
+ border-radius: 30px;
 }
-h2{
-    font-family: "Varela Round", sans-serif;
-    margin-top: 10px;
+
+.h2 {
+ font-family: "Varela Round", sans-serif;
+ margin-top: 10px;
+ -webkit-backdrop-filter: blur(9px);
+ backdrop-filter: blur(9px);
+ display: inline-block;
+ border-radius: 30px;
 }
-.img{
-    object-fit: contain;
-    width: 50%;
- height: 50%;
+
+.img {
+ object-fit: contain;
+ width: 30%;
+ height: 30%;
  margin-top: 16px;
  /* margin-bottom: -100px; */
  padding: 10px;
  border-radius: 30px;
  background-size: cover;
+ -webkit-backdrop-filter: blur(9px);
+ backdrop-filter: blur(9px);
+ display: inline-block;
+ border-radius: 30px;
 }
 
-p{
-    
-    font-family: "Varela Round", sans-serif;
-    font-size: 20px;
-    font-style: normal;
-    /* display: inline-block; */
-    margin-top: 10px;
-    /* margin-bottom: 10px; */
-    padding: 6px;
+.p {
+ font-family: "Varela Round", sans-serif;
+ font-size: 20px;
+ font-style: normal;
+ /* display: inline-block; */
+ margin-top: 10px;
+ /* margin-bottom: 10px; */
+ padding: 6px;
+ -webkit-backdrop-filter: blur(9px);
+ backdrop-filter: blur(9px);
+ display: inline-block;
+ border-radius: 30px;
+}
+
+.background {
+ background: url("../src/assets/Fondo 11.jpg");
+ background-position: center center;
+ background-size: cover;
+ background-attachment: fixed;
+ margin: 0;
+ padding: 0;
+ height: 100%;
+ width: 100%;
+}
+
+.label {
+ font-family: "Varela Round", sans-serif;
+ font-weight: 500;
+ font-size: 150%;
+ font-style: initial;
+ text-align: center center;
+ margin-bottom: 280px;
+ padding: 7px;
+ text-align: center;
+}
+
+/********** BUTTON **********/
+
+.button {
+ padding: 6px 10px;
+ border-radius: 10px;
+ border: 0;
+ background-color: rgb(255, 56, 86);
+ letter-spacing: 1.5px;
+ font-size: 15px;
+ transition: all 0.3s ease;
+ box-shadow: rgb(201, 46, 70) 0px 10px 0px 0px;
+ color: hsl(0, 0%, 100%);
+ cursor: pointer;
+ margin: 7px;
+}
+
+.button:hover {
+ box-shadow: rgb(201, 46, 70) 0px 7px 0px 0px;
+}
+
+.button:active {
+ background-color: rgb(255, 56, 86);
+ /*50, 168, 80*/
+ box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
+ transform: translateY(5px);
+ transition: 200ms;
 }

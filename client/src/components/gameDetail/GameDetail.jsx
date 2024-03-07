@@ -24,29 +24,50 @@ function GameDetail() {
  };
 
  return (
-  <div >
+  <div className={styles.background}>
    {game ? (
     <>
-     <button onClick={handleClick}>Home</button>
-    <div >
+     <button className={styles.button} onClick={handleClick}>Home</button>
 
-     <h1>{game.id}</h1>
-     <h2>{game.name}</h2>
-     <img className={styles.img} src={game.background_image} alt={game.name} />
-     <p>PLATFORMS: {game.platforms}</p>
-     <p>DESCRIPTION: {game.description_raw}</p>
-     <p>GENRE: {game.genres}</p>
-     <p>RATING: {game.rating}</p>
-    </div>
+     <div>
+      <section>
+        <label className={styles.label}>ID: </label>
+       <h1 className={styles.h1}>{game.id}</h1>
+      </section>
+
+      <section>
+       <h2 className={styles.h2}>{game.name}</h2>
+      </section>
+
+      <section>
+       <img
+        className={styles.img}
+        src={game.background_image}
+        alt={game.name}
+       />
+      </section>
+
+      <section>
+       <p className={styles.p}>PLATFORMS: {game.platforms}</p>
+      </section>
+
+      <section>
+       <p className={styles.p}>DESCRIPTION: {game.description_raw}</p>
+      </section>
+
+      <section>
+       <p className={styles.p}>GENRE: {game.genres}</p>
+      </section>
+
+      <section>
+       <p className={styles.p}>RATING: {game.rating}</p>
+      </section>
+     </div>
     </>
    ) : (
     // <p>Cargando...</p>
     <div className={styles.loaderContainer}>
-     {" "}
-     {/* Use a separate class */}
      <div className={styles.loader}>
-      {" "}
-      {/* Nested class for styles */}
       <div className={styles.loaderSquare}></div>
       <div className={styles.loaderSquare}></div>
       <div className={styles.loaderSquare}></div>

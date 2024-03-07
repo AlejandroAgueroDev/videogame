@@ -1,0 +1,130 @@
+.button {
+ padding: 6px 10px;
+ border-radius: 10px;
+ border: 0;
+ background-color: rgb(255, 56, 86);
+ letter-spacing: 1.5px;
+ font-size: 15px;
+ transition: all 0.3s ease;
+ box-shadow: rgb(201, 46, 70) 0px 10px 0px 0px;
+ color: hsl(0, 0%, 100%);
+ cursor: pointer;
+ margin: 7px;
+}
+
+.button:hover {
+ box-shadow: rgb(201, 46, 70) 0px 7px 0px 0px;
+}
+
+.button:active {
+ background-color: rgb(255, 56, 86);
+ /*50, 168, 80*/
+ box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
+ transform: translateY(5px);
+ transition: 200ms;
+}
+
+/********** RATING *********/
+
+.rating {
+ display: inline-block;
+ justify-content: start;
+}
+
+.rating__input {
+ display: none;
+}
+
+.rating__label {
+ float: right;
+ cursor: pointer;
+ color: #8d8c8c;
+ /* transition: color 0.3s; */
+ line-height: 30px;
+ vertical-align: middle;
+}
+
+.rating__label::before {
+ content: "\2605";
+ font-size: 30px;
+}
+
+.rating__input:checked ~ .rating__label,
+.rating__label:hover,
+.rating__label:hover ~ .rating__label {
+ color: #da3737;
+ transition: color 0.3s;
+}
+
+/************ FORM ***********/
+.label {
+ font-family: "Varela Round", sans-serif;
+ font-weight: 500;
+ font-size: 150%;
+ font-style: initial;
+ text-align: center center;
+ margin-bottom: 280px;
+ padding: 7px;
+ text-align: center;
+}
+
+.input {
+ font-family: "Varela Round", sans-serif;
+ align-items: start;
+ border-radius: 30px;
+ text-align: center;
+ padding-left: 10px; /* Ajusta según sea necesario */
+ padding-right: 10px;
+}
+
+.error_message {
+ color: rgb(248, 3, 3);
+ font-family: "Varela Round", sans-serif;
+ font-weight: 500;
+}
+
+.form {
+ margin-top: 10px;
+ padding: 10px;
+ -webkit-backdrop-filter: blur(7px);
+ backdrop-filter: blur(6px);
+ display: inline-block;
+ border-radius: 30px;
+}
+
+.textArea {
+ font-family: "Varela Round", sans-serif;
+ align-items: start;
+ border-radius: 30px;
+ text-align: center;
+ padding-left: 10px; /* Ajusta según sea necesario */
+ padding-right: 10px;
+ width: 250px;
+ height: 50px;
+ resize: none;
+}
+
+.releaseDate {
+ font-family: "Varela Round", sans-serif;
+ border-radius: 30px;
+ padding: 10px 15px; /* Add some padding for better readability */
+ border: 1px solid #ccc; /* Add a subtle border */
+ background-color: #f5f5f5; /* Light background color */
+ cursor: pointer; /* Indicate clickable nature */
+}
+
+.releaseDate:focus {
+ outline: none; /* Remove default outline on focus */
+ border-color: #888; /* Change border color on focus for better feedback */
+}
+
+.background {
+ background: url("../src/assets/Fondo 11.jpg");
+ background-position: center center;
+ background-size: cover;
+ position: fixed;
+ margin: 0;
+ padding: 0;
+ height: 100%;
+ width: 100%;
+}

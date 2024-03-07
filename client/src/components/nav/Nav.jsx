@@ -39,45 +39,45 @@ const Nav = () => {
 
   return (
     <>
-    
-    <div>
-      <Bar />
-    </div>
-    <div className={styles.navBar}>
 
-      <label htmlFor="genre">Género:</label>
-      <select id="genre" onChange={handleGenreChange}>
-        <option value="Todos" >Todos</option>
-        {genres.map(genre => (
-          <option key={genre.id} value={genre.name}>
-            {genre.name}
-          </option>
-        ))}
-      </select>
+      <div>
+        <Bar />
+      </div>
+      <div className={styles.navBar}>
 
-
-      <label htmlFor="origin">Origen:</label>
-      <select id="origin" value={refresh} onChange={handleOriginChange}>
-        <option value="API">API</option>
-        <option value="BD">Base de Datos</option>
-      </select>
+        <label htmlFor="genre">Género:</label>
+        <select className={styles.select} id="genre" onChange={handleGenreChange}>
+          <option value="Todos" >Todos</option>
+          {genres.map(genre => (
+            <option key={genre.id} value={genre.name}>
+              {genre.name}
+            </option>
+          ))}
+        </select>
 
 
-      <label htmlFor="order">Ordenar por:</label>
-      <select id="order" value={refresh} onChange={handleOrderChange}>
-        <option value="Por defecto" hidden>ORDENAR</option>
-        <option value="ascendente">A-Z</option>
-        <option value="descendente">Z-A</option>
-      </select>
+        <label htmlFor="origin">Origen:</label>
+        <select className={styles.select} id="origin" value={refresh} onChange={handleOriginChange}>
+          <option className={styles.option} value="API">API</option>
+          <option className={styles.option} value="BD">Base de Datos</option>
+        </select>
 
-      <button onClick={handleRefresh}>Refresh</button>
 
-      <Link to='/create'>
-        <button>CreateGame</button>
-      </Link>
+        <label htmlFor="order">Ordenar por:</label>
+        <select className={styles.select} id="order" value={refresh} onChange={handleOrderChange}>
+          <option className={styles.option} value="Por defecto" hidden>ORDENAR</option>
+          <option className={styles.option} value="ascendente">A-Z</option>
+          <option className={styles.option} value="descendente">Z-A</option>
+        </select>
 
-    </div>
-  </>
+        <button className={styles.button} onClick={handleRefresh}>Refresh</button>
+
+        <Link to='/create'>
+          <button className={styles.button}>CreateGame</button>
+        </Link>
+
+      </div>
+    </>
   );
 };
 

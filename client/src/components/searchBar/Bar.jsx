@@ -33,17 +33,16 @@ const Bar = () => {
   return (
     <>
       <div className={styles.search} >
-        <input        
+        <input
+          className={styles.input}        
           type="text"
           placeholder="Buscar..."
           value={input}
           onChange={handleChange}
         />
-        <button type="submit" onClick={handleSearch}>BUSCAR</button>
+        <button className={styles.button} type="submit" onClick={handleSearch}>BUSCAR</button>
       </div>
 
-      <div>
-      </div>
     </>
   );
 }

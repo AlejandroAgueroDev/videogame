@@ -13,7 +13,7 @@ const Page = () => {
 
   return (
     <div className={styles.background}>
-      <h1 className={styles.h1}>Que comience la aventura</h1>
+      <h1 className={styles.h1}>Que comience la aventura...</h1>
       <div>
         <button className={styles.button} onClick={handleClick}>PLAY...</button>
       </div>

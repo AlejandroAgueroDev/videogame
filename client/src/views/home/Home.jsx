@@ -19,8 +19,8 @@ const Home = () => {
   },[]);
 
   return (
-    <div className={styles.background}>
-        <div>
+    <div className={styles.home}>
+        <div >
           <Nav/>
         </div>
       {/* <h1>Este es el home</h1> */}

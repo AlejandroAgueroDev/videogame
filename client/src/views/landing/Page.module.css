@@ -1,7 +1,7 @@
 /**************** BUTTON ***************/
 
 .button {
- margin-top: 110px;
+ margin-top: 60px;
  padding: 17px 40px;
  border-radius: 10px;
  border: 0;
@@ -30,13 +30,13 @@
 .h1 {
  font-family: "Varela Round", sans-serif;
  font-weight: 500;
- font-size: 400%;
+ font-size: 200%;
  font-style: normal;
  border-radius: 30px;
  -webkit-backdrop-filter: blur(7px);
  backdrop-filter: blur(6px);
  display: inline-block;
- margin-top: 100px;
+ margin-top: 150px;
  padding: 10px;
 }
 
@@ -45,7 +45,7 @@
  font-weight: 400;
  font-size: 140%;
  font-style: italic;
- margin-top: 210px;
+ margin-top: 80px;
  -webkit-backdrop-filter: blur(7px);
  backdrop-filter: blur(6px);
  display: inline-block;
@@ -54,7 +54,7 @@
 }
 
 .background {
- background: url("../src/assets/Fondo 4.png");
+ background: url("../src/assets/Fondo 11.jpg");
  background-position: center center;
  background-size: cover;
  position: fixed;
