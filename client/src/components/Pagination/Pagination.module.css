@@ -1,0 +1,34 @@
+.paginationContainer {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ padding: 20px 0;
+}
+
+.pageButton {
+    font-family: "Varela Round", sans-serif;
+ margin: 0 5px;
+ padding: 10px 20px;
+ border: none;
+ border-radius: 30px;
+ background-color: #36353560 ;
+ color: #fcfafa;
+ cursor: pointer;
+ transition: background-color 0.3s ease;
+ -webkit-backdrop-filter: blur(9px);
+ backdrop-filter: blur(9px);
+}
+
+.pageButton:hover {
+ background-color: #635f5f;
+}
+
+.pageButton.active {
+ background-color: #333;
+ color: #fff;
+}
+
+.pageButton.disabled {
+ cursor: not-allowed;
+ opacity: 0.5;
+}
