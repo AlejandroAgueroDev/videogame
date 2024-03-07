@@ -31,12 +31,12 @@ function GameDetail() {
 
      <div>
       <section>
-        <label className={styles.label}>ID: </label>
+        <label className={styles.label}><span className={styles.underline}>ID</span>: </label>
        <h1 className={styles.h1}>{game.id}</h1>
       </section>
 
       <section>
-       <h2 className={styles.h2}>{game.name}</h2>
+       <h2 className={styles.h2}><span className={styles.underline}>NAME</span>: {game.name}</h2>
       </section>
 
       <section>
@@ -48,24 +48,23 @@ function GameDetail() {
       </section>
 
       <section>
-       <p className={styles.p}>PLATFORMS: {game.platforms}</p>
+       <p className={styles.p}><span className={styles.underline}>PLATFORMS</span>: {game.platforms}</p>
       </section>
 
       <section>
-       <p className={styles.p}>DESCRIPTION: {game.description_raw}</p>
+       <p className={styles.p}><span className={styles.underline}>DESCRIPTION</span>: {game.description_raw}</p>
       </section>
 
       <section>
-       <p className={styles.p}>GENRE: {game.genres}</p>
+       <p className={styles.p}><span className={styles.underline}>GENRE</span>: {game.genres}</p>
       </section>
 
       <section>
-       <p className={styles.p}>RATING: {game.rating}</p>
+       <p className={styles.p}><span className={styles.underline}>RATING</span>: {game.rating}</p>
       </section>
      </div>
     </>
-   ) : (
-    // <p>Cargando...</p>
+   ) : (   
     <div className={styles.loaderContainer}>
      <div className={styles.loader}>
       <div className={styles.loaderSquare}></div>

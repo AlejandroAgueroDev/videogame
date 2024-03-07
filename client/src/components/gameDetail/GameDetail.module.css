@@ -179,7 +179,6 @@
  width: 30%;
  height: 30%;
  margin-top: 16px;
- /* margin-bottom: -100px; */
  padding: 10px;
  border-radius: 30px;
  background-size: cover;
@@ -201,6 +200,7 @@
  backdrop-filter: blur(9px);
  display: inline-block;
  border-radius: 30px;
+ background-color: #e9e4e460 ;
 }
 
 .background {
@@ -225,6 +225,11 @@
  text-align: center;
 }
 
+
+.underline {
+    text-decoration: underline;
+  }
+
 /********** BUTTON **********/
 
 .button {
@@ -247,7 +252,6 @@
 
 .button:active {
  background-color: rgb(255, 56, 86);
- /*50, 168, 80*/
  box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
  transform: translateY(5px);
  transition: 200ms;

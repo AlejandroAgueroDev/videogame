@@ -92,6 +92,7 @@
  display: inline-block;
  border-radius: 30px;
  border: 1px solid #000000;
+ background-color: #e9e4e481;
 }
 
 .textArea {
@@ -121,7 +122,8 @@
  border-radius: 30px;
  padding: 10px 15px;
  border: 1px solid #000000;
- background-color: rgb(255, 56, 86);
+ /* background-color: rgb(255, 56, 86); */
+ background-color: #e9e4e481;
  cursor: pointer;
 }
 

@@ -10,6 +10,7 @@
  margin-top: 10px;
  padding: 10px;
  border: 1px solid #000000;
+ background-color: #e9e4e481;
 }
 
 .button {
@@ -40,8 +41,7 @@
 .select {
  border-radius: 30px;
  font-family: "Varela Round", sans-serif;
- padding: 10px 15px;
- border: 1px solid #ccc;
+ padding: 10px 10px;
  background-color: rgb(255, 56, 86);
  cursor: pointer;
  border: 1px solid #000000;
