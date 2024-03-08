@@ -8,6 +8,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     }
   
     return (
+      
       <div className={styles.paginationContainer}>
         {currentPage > 1 && <button 
         className={styles.pageButton} 
