@@ -6,12 +6,12 @@
 }
 
 .pageButton {
-    font-family: "Varela Round", sans-serif;
+ font-family: "Varela Round", sans-serif;
  margin: 0 5px;
  padding: 10px 20px;
  border: none;
  border-radius: 30px;
- background-color: #36353560 ;
+ background-color: #36353560;
  color: #fcfafa;
  cursor: pointer;
  transition: background-color 0.3s ease;
