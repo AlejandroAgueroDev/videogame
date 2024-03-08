@@ -44,12 +44,6 @@ const FormCreate = () => {
     }
   };
 
-  //  const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   dispatch(createGame(gameData));
-  //   navigate("/home");
-  //  };
-
   useEffect(() => {
     dispatch(get_genres());
   }, []);
@@ -230,9 +224,24 @@ const FormCreate = () => {
           {errors.genres && <p className={styles.error_message}>{errors.genres}</p>}
         </div>
 
-        <button className={styles.button} type="submit" disabled={buttonDisabled}>
+        {/* <button className={styles.button} type="submit" disabled={buttonDisabled}>
+          Crear juego
+        </button> */}
+
+        <button
+          className={styles.button}
+          type="submit"
+          onClick={(event) => {
+            if (buttonDisabled) {
+              event.preventDefault();
+            } else {
+              handleSubmit(event);
+            }
+          }}
+        >
           Crear juego
         </button>
+
       </form>
 
 
@@ -266,3 +275,10 @@ export default FormCreate;
        onChange={handleChange}
      /> */
 }
+
+
+//  const handleSubmit = async (event) => {
+//   event.preventDefault();
+//   dispatch(createGame(gameData));
+//   navigate("/home");
+//  };
