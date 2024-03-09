@@ -15,7 +15,7 @@ export const validateForm = (fields) => {
   errors.background_image = "El campo URL de imagen es obligatorio";
 
  } else if (!/\.(jpg|png)$/.test(fields.background_image)) {
-  errors.background_image = "La URL de imagen debe terminar en .jpg o .png";
+  errors.background_image = "Debe ser una URL valida";
 
  } else if (!fields.releaseDate) {
   errors.releaseDate = "El campo fecha de creación es obligatorio";

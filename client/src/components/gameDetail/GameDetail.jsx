@@ -24,13 +24,24 @@ function GameDetail() {
   };
 
   const handleDelete = async () => {
-    try {
-      await axios.delete(`http://localhost:3001/videogames/delete/${id}`);
-      alert("Videojuego eliminado exitosamente");
-      navigate("/home");
-    } catch (error) {
-      console.error(error);
-      alert("Hubo un error al intentar eliminar el videojuego");
+    const userCode = prompt(
+      "Por favor, ingresa el código para eliminar el juego:"
+    );
+    const yourCode = "1234"; 
+
+    if (userCode === yourCode) {
+      try {
+        await axios.delete(`http://localhost:3001/videogames/delete/${id}`);
+        alert("Videojuego eliminado exitosamente");
+        navigate("/home");
+      } catch (error) {
+        console.error(error);
+        alert("Hubo un error al intentar eliminar el videojuego");
+      }
+    } else {
+      alert(
+        "El código ingresado es incorrecto. El videojuego no se ha eliminado."
+      );
     }
   };
 
@@ -72,7 +83,8 @@ function GameDetail() {
 
             <section>
               <p className={styles.p}>
-                <span className={styles.underline}>PLATFORMS</span>: {game.platforms}
+                <span className={styles.underline}>PLATFORMS</span>:{" "}
+                {game.platforms}
               </p>
             </section>
 
