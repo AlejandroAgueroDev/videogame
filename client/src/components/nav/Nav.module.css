@@ -32,7 +32,7 @@
 }
 
 .button:active {
- background-color: rgb(255, 56, 86);
+ background-color: rgba(255, 56, 86, 0.896);
  /*50, 168, 80*/
  box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
  transform: translateY(5px);
