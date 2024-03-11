@@ -11,19 +11,22 @@ const Nav = () => {
 
   const dispatch = useDispatch()
   const genres = useSelector(state => state.get_genres);
-  const [refresh, setRefresh] = useState("");  
-  const [forseUpdate, setForseUpdate]=useState(true)
-  
+  const [refresh, setRefresh] = useState("");
+  const [forseUpdate, setForseUpdate] = useState(true)
+  const [selectedGenre, setSelectedGenre] = useState("Todos");
+  const [selectedOrigin, setSelectedOrigin] = useState("API");
 
   const handleGenreChange = (event) => {
-    dispatch(select_genres(event.target.value))
+    dispatch(select_genres(event.target.value));
+    setSelectedGenre(event.target.value);
     setForseUpdate(!forseUpdate)
-    setRefresh(event.target.value);
   };
 
   const handleOriginChange = (event) => {
     setRefresh(event.target.value);
     dispatch(allGame(event.target.value))
+    setSelectedOrigin(event.target.value);
+    setSelectedGenre("Todos");
     setForseUpdate(!forseUpdate)
   };
 
@@ -38,6 +41,9 @@ const Nav = () => {
     dispatch(refreshOrder())
     setRefresh("")
     setForseUpdate(!forseUpdate)
+
+    setSelectedGenre("Todos");
+    setSelectedOrigin("API");
   };
 
   useEffect(() => {
@@ -53,7 +59,7 @@ const Nav = () => {
       <div className={styles.navBar}>
 
         <label htmlFor="genre">Género:</label>
-        <select className={styles.select} id="genre" value={refresh} onChange={handleGenreChange}>
+        <select className={styles.select} id="genre" value={selectedGenre} onChange={handleGenreChange}>
           <option value="Todos" >Todos</option>
           {genres.map(genre => (
             <option key={genre.id} value={genre.name}>
@@ -64,7 +70,7 @@ const Nav = () => {
 
 
         <label htmlFor="origin">Origen:</label>
-        <select className={styles.select} id="origin" value={refresh} onChange={handleOriginChange}>
+        <select className={styles.select} id="origin" value={selectedOrigin} onChange={handleOriginChange}>
           <option className={styles.option} value="API">API</option>
           <option className={styles.option} value="BD">Base de Datos</option>
         </select>
@@ -89,3 +95,12 @@ const Nav = () => {
 };
 
 export default Nav;
+
+
+
+
+
+// const handleGenreChange = (event) => {
+//   dispatch(select_genres(event.target.value))
+//   setRefresh(event.target.value);
+// };
