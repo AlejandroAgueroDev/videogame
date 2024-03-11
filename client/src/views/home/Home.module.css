@@ -26,7 +26,7 @@ body{
  width: 96px;
  height: 96px;
  transform: rotate(45deg);
- background-color: #fdfdfd;
+ background-color: #fdfdfd00;
 }
 
 .loaderSquare {
