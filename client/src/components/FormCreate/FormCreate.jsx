@@ -250,35 +250,3 @@ const FormCreate = () => {
 };
 
 export default FormCreate;
-
-//  const handleSubmit = async (event) => {
-//   event.preventDefault();
-//   try {
-//     dispatch(createGame(gameData));
-//     navigate("/home", { state:  alert('Juego creado correctamente') });
-//   } catch (error) {
-//     alert("Error creando juego:", error);
-
-//   }
-//  };
-
-{
-  /* <input
-       type="number"
-       id="rating"
-       name="rating"
-       min="1"
-       max="5"
-       step="1"
-       placeholder="Rating"
-       value={gameData.rating}
-       onChange={handleChange}
-     /> */
-}
-
-
-//  const handleSubmit = async (event) => {
-//   event.preventDefault();
-//   dispatch(createGame(gameData));
-//   navigate("/home");
-//  };

@@ -95,12 +95,3 @@ const Nav = () => {
 };
 
 export default Nav;
-
-
-
-
-
-// const handleGenreChange = (event) => {
-//   dispatch(select_genres(event.target.value))
-//   setRefresh(event.target.value);
-// };

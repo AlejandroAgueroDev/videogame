@@ -31,8 +31,6 @@ export const allGame = (valorInput) => {
             description_raw: game.description_raw,
             genres: game.genres,
             platforms: game.platforms,
-            // .split(", ")
-            // .map((plat, index) => ({ id: index, platform: plat })),
             background_image: game.background_image,
             released: game.releaseDate,
             rating: game.rating,

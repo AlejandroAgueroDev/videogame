@@ -53,7 +53,7 @@ const Home = () => {
    </div>
 
    <div>
-    {searchredGames.length > 0 //aca me muestra los juegos segun el search
+    {searchredGames.length > 0 
      ? searchredGames.map((game) => <GameCard key={game.id} game={game} />)
      : videoGames
         .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
