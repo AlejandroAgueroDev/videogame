@@ -5,6 +5,9 @@ export const validateForm = (fields) => {
     if (!fields.name.trim()) {
         errors.name = "El campo nombre es obligatorio";
 
+    }else if (fields.name.trim().length > 20) {
+        errors.name = "El campo name no debe exceder los 20 caracteres";
+
     } else if (!fields.description_raw.trim()) {
         errors.description_raw = "El campo descripción es obligatorio";
 

@@ -108,17 +108,3 @@ export const createGame=(gameData)=>{
 
   };
 }
-
-// export const createGame=(gameData)=>{
-//   return async (dispatch) => {
-
-//     const response = await axios.post('http://localhost:3001/videogames/create', gameData);
-//     const newGame = response.data;
-
-//     return dispatch({
-//       type: CREATE_GAME,
-//       payload: newGame,
-//     });
-
-//   };
-// }

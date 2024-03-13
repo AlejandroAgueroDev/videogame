@@ -30,7 +30,7 @@ const FormCreate = () => {
       [event.target.name]: event.target.value,
     });
   };
-
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -158,31 +158,13 @@ const FormCreate = () => {
         <div className={styles.rating}>
           <input
             type="radio"
-            id="star1"
+            id="star5"
             name="rating"
-            value="1"
+            value="5"
             className={styles.rating__input}
             onChange={handleChange}
           />
-          <label htmlFor="star1" className={styles.rating__label} />
-          <input
-            type="radio"
-            id="star2"
-            name="rating"
-            value="2"
-            className={styles.rating__input}
-            onChange={handleChange}
-          />
-          <label htmlFor="star2" className={styles.rating__label} />
-          <input
-            type="radio"
-            id="star3"
-            name="rating"
-            value="3"
-            className={styles.rating__input}
-            onChange={handleChange}
-          />
-          <label htmlFor="star3" className={styles.rating__label} />
+          <label htmlFor="star5" className={styles.rating__label} />
           <input
             type="radio"
             id="star4"
@@ -194,13 +176,31 @@ const FormCreate = () => {
           <label htmlFor="star4" className={styles.rating__label} />
           <input
             type="radio"
-            id="star5"
+            id="star3"
             name="rating"
-            value="5"
+            value="3"
             className={styles.rating__input}
             onChange={handleChange}
           />
-          <label htmlFor="star5" className={styles.rating__label} />
+          <label htmlFor="star3" className={styles.rating__label} />
+          <input
+            type="radio"
+            id="star2"
+            name="rating"
+            value="2"
+            className={styles.rating__input}
+            onChange={handleChange}
+          />
+          <label htmlFor="star2" className={styles.rating__label} />
+          <input
+            type="radio"
+            id="star1"
+            name="rating"
+            value="1"
+            className={styles.rating__input}
+            onChange={handleChange}
+          />
+          <label htmlFor="star1" className={styles.rating__label} />
         </div>
         {errors.rating && <p className={styles.error_message}>{errors.rating}</p>}
 
