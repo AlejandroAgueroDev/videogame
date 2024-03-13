@@ -223,11 +223,7 @@ const FormCreate = () => {
           </select>
           {errors.genres && <p className={styles.error_message}>{errors.genres}</p>}
         </div>
-
-        {/* <button className={styles.button} type="submit" disabled={buttonDisabled}>
-          Crear juego
-        </button> */}
-
+       
         <button
           className={styles.button}
           type="submit"
@@ -250,3 +246,13 @@ const FormCreate = () => {
 };
 
 export default FormCreate;
+
+
+
+
+
+
+
+ {/* <button className={styles.button} type="submit" disabled={buttonDisabled}>
+          Crear juego
+        </button> */}
