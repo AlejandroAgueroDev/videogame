@@ -10,7 +10,7 @@
  margin: 0 5px;
  padding: 10px 20px;
  border: none;
- border-radius: 30px;
+ border-radius: 20px;
  background-color: #36353560;
  color: #fcfafa;
  cursor: pointer;
@@ -20,11 +20,11 @@
 }
 
 .pageButton:hover {
- background-color: #635f5f;
+ background-color: #d62727;
 }
 
 .pageButton.active {
- background-color: #333;
+ background-color: #a03434;
  color: #fff;
 }
 
