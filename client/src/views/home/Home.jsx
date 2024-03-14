@@ -59,7 +59,6 @@ const Home = () => {
         .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
         .map((game) => <GameCard key={game.id} game={game} />)}
    </div>
-
    <div>
     <Pagination
      currentPage={currentPage}
