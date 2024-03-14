@@ -24,6 +24,9 @@ const Home = () => {
   dispatch(allGame()).then(() => setLoading(false));
  }, []);
 
+
+ const gamesToShow = searchredGames.length > 0 ? searchredGames : videoGames
+
  if (loading) {
   return (
    <div>
@@ -60,11 +63,14 @@ const Home = () => {
         .map((game) => <GameCard key={game.id} game={game} />)}
    </div>
    <div>
-    <Pagination
-     currentPage={currentPage}
-     totalPages={totalPages}
-     onPageChange={onPageChange}
-    />
+
+   {gamesToShow.length >= 3 && (
+      <Pagination
+       currentPage={currentPage}
+       totalPages={totalPages}
+       onPageChange={onPageChange}
+      />
+    )}
    </div>
   </div>
  );
