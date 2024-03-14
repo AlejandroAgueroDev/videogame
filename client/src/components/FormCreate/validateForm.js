@@ -12,6 +12,7 @@ export const validateForm = (fields) => {
 
     } else if (specialCharRegex.test(fields.name)) {
         errors.name = "El campo nombre no debe contener caracteres especiales";
+        
     } else if (!fields.description_raw.trim()) {
         errors.description_raw = "El campo descripción es obligatorio";
 
